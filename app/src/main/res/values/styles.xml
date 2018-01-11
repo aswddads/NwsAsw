@@ -3,9 +3,21 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
+        <!--ActionBar、toolbar-->
         <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <!--StatusBar-->
+        <item name="colorPrimaryDark">@color/colorPrimary</item>
+        <!--other status color-->
         <item name="colorAccent">@color/colorAccent</item>
+        <!--ActionBar text-->
+        <!--<item name="textColorPrimary">#fff</item>-->
+        <!--content background-->
+        <!--<item name="windowBackground">#fff</item>-->
+        <!--底部导航-->
+        <!--<item name="android:navigationBarColor"></item>-->
+    </style>
+    
+    <style name="MyAppTheme" parent="AppTheme">
     </style>
 
 </resources>

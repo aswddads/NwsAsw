@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.mob.sdk'
 
 android {
     compileSdkVersion 26
@@ -11,8 +12,18 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
+        def BOOLEAN = "boolean"
+        def TRUE = "true"
+        def FALSE = "false"
+        def IS_SHOW_LOG = "IS_SHOW_LOG"
+
+        debug{
+            minifyEnabled false
+            buildConfigField BOOLEAN, IS_SHOW_LOG, TRUE
+        }
         release {
             minifyEnabled false
+            buildConfigField BOOLEAN, IS_SHOW_LOG, FALSE
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -25,4 +36,15 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+
+    implementation 'me.yokeyword:fragmentation:1.1.6'
+
+    implementation 'com.orhanobut:logger:1.15'
+}
+
+MobSDK {
+    appKey "23a6f80888ecb"
+    appSecret "21083155a55dce4020b833bf40dc0d4d"
+
+    SMSSDK {}
 }

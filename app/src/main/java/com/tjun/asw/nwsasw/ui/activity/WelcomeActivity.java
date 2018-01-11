@@ -1,7 +1,9 @@
-package com.tjun.asw.nwsasw;
+package com.tjun.asw.nwsasw.ui.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.tjun.asw.nwsasw.R;
 
 public class WelcomeActivity extends AppCompatActivity {
 
