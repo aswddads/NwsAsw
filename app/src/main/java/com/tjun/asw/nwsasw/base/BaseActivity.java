@@ -1,6 +1,7 @@
 package com.tjun.asw.nwsasw.base;
 
 import android.content.Context;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatDelegate;
@@ -10,7 +11,9 @@ import com.tjun.asw.nwsasw.base.ui.WaitProgressDialog;
 import com.tjun.asw.nwsasw.manager.AppManager;
 import com.tjun.asw.nwsasw.utils.ModeThemeUtils;
 import com.tjun.asw.nwsasw.utils.SpUtils;
+import com.tjun.asw.nwsasw.utils.StatusBarUtils;
 
+import butterknife.ButterKnife;
 import me.yokeyword.fragmentation.SupportActivity;
 import me.yokeyword.fragmentation.anim.DefaultVerticalAnimator;
 import me.yokeyword.fragmentation.anim.FragmentAnimator;
@@ -39,6 +42,17 @@ public abstract class BaseActivity extends SupportActivity {
     private void init(Bundle savedInstanceState) {
         setTheme(ModeThemeUtils.THEME_ARR[SpUtils.getThemeIndex(this)][SpUtils.getNightModel(this) ? 1 : 0]);
         setContentView(getLayoutId());
+        ButterKnife.bind(this);
+        StatusBarUtils.steTransparent(this);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        initData();
+        initView(savedInstanceState);
+        AppManager.getInstance().addActivity(this);
+    }
+
+    protected abstract void initView(Bundle savedInstanceState);
+
+    private void initData() {
     }
 
     /**
